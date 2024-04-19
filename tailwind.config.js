@@ -11,13 +11,27 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
+
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                lora: ['Lora'],
             },
         },
     },
 
-    plugins: [forms, typography],
+    plugins: [forms, typography, require("daisyui")],
+
+    daisyui: {
+        themes: [{
+            mytheme: {
+                "primary": "#219C90",
+                "secondary": "#FF204E",
+                "accent": "#FFC700",
+                "neutral": "#191717",
+                "base-100": "#EEEEEE",
+            },
+        }, ],
+    },
+
 };
