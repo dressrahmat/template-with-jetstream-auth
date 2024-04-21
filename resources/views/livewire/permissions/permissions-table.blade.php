@@ -76,4 +76,5 @@
             {{ $data->onEachSide(1)->links() }}
         </div>
     </div>
+    <x-sweet-alert />
 </div>

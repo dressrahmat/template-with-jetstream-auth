@@ -12,6 +12,7 @@ class PermissionsTable extends Component
     use WithPagination;
 
     #[On('form-create')]
+    #[On('form-edit')]
     public function render()
     {
         $data = Permission::latest()->paginate(5);

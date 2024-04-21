@@ -4,5 +4,6 @@
     </div>
     <div class="basis-2/5">
         @livewire('permissions.permissions-create')
+        @livewire('permissions.permissions-edit')
     </div>
 </div>
