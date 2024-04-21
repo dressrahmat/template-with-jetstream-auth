@@ -2,12 +2,11 @@
 
 namespace App\Livewire\Rewards;
 
-use App\Models\Reward;
-use Livewire\Component;
-use App\Models\Customer;
-use Livewire\Attributes\On;
 use App\Livewire\Forms\RewardForm;
-use App\Livewire\Rewards\RewardsTable;
+use App\Models\Customer;
+use App\Models\Reward;
+use Livewire\Attributes\On;
+use Livewire\Component;
 
 class RewardsEdit extends Component
 {
@@ -35,6 +34,7 @@ class RewardsEdit extends Component
     public function render()
     {
         $customers = Customer::get();
+
         return view('livewire.rewards.rewards-edit', compact('customers'));
     }
 }

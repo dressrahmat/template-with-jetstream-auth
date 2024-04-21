@@ -14,13 +14,13 @@ class CustomersCreate extends Component
     public function save()
     {
         $this->validate();
-        
+
         try {
             $simpan = $this->form->store();
             $this->dispatch('sweet-alert', icon: 'success', title: 'data berhasil disimpan');
             $this->dispatch('set-reset');
         } catch (\Throwable $th) {
-            $this->dispatch('sweet-alert', icon: 'error', title: 'data gagal disimpan' . $th->getMessage());
+            $this->dispatch('sweet-alert', icon: 'error', title: 'data gagal disimpan'.$th->getMessage());
         }
 
         $this->dispatch('dispatch-customer-create-save')->to(CustomersTable::class);

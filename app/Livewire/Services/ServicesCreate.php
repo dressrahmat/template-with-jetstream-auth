@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Services;
 
-use Livewire\Component;
-use App\Models\Customer;
 use App\Livewire\Forms\ServiceForm;
+use App\Models\Customer;
+use Livewire\Component;
 
 class ServicesCreate extends Component
 {

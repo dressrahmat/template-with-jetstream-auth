@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Services;
 
-use App\Models\Service;
-use Livewire\Component;
-use App\Models\Customer;
-use Livewire\Attributes\On;
 use App\Livewire\Forms\ServiceForm;
+use App\Models\Customer;
+use App\Models\Service;
+use Livewire\Attributes\On;
+use Livewire\Component;
 
 class ServicesEdit extends Component
 {

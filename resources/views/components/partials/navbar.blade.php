@@ -44,7 +44,7 @@
                         </a>
                     </li> --}}
                     <li>
-                        <a href="{{ route('profile.show', auth()->user()->id) }}" class="justify-between">
+                        <a wire:navigate href="{{ route('profile.show', auth()->user()->id) }}" class="justify-between">
                             Profile
                         </a>
                     </li>

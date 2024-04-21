@@ -41,7 +41,7 @@
         <main :class="{ 'md:ml-48 lg:ml-64 pt-32': isOpen, 'md:ml-28 pt-24': !isOpen }"
             class="p-4 min-h-screen mb-40 md:mb-20">
             <!-- Your page content here -->
-            @yield('content')
+            {{ $slot }}
 
         </main>
 

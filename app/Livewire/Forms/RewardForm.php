@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Forms;
 
-use Livewire\Form;
 use App\Models\Reward;
+use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Locked;
-use Illuminate\Contracts\Database\Query\Builder;
+use Livewire\Form;
 
 class RewardForm extends Form
 {
@@ -40,27 +40,27 @@ class RewardForm extends Form
                     ->where(function (Builder $query) {
                         return $query->where('month', $this->month)
                             ->where('year', $this->year);
-                    })->ignore($this->id, 'id')
-                ],
-                'month' => [
-                    'required',
-                    'integer',
-                    Rule::unique('rewards', 'month')
-                        ->where(function (Builder $query) {
-                            return $query->where('customer_id', $this->customer)
-                                ->where('year', $this->year);
-                        })->ignore($this->id, 'id')
-                    ],
-                'year' => [
-                    'required',
-                    'integer',
-                    Rule::unique('rewards', 'year')
-                        ->where(function (Builder $query) {
-                            return $query->where('customer_id', $this->customer)
-                                ->where('year', $this->year);
-                        })->ignore($this->id, 'id')
-                    ],
-            ];
+                    })->ignore($this->id, 'id'),
+            ],
+            'month' => [
+                'required',
+                'integer',
+                Rule::unique('rewards', 'month')
+                    ->where(function (Builder $query) {
+                        return $query->where('customer_id', $this->customer)
+                            ->where('year', $this->year);
+                    })->ignore($this->id, 'id'),
+            ],
+            'year' => [
+                'required',
+                'integer',
+                Rule::unique('rewards', 'year')
+                    ->where(function (Builder $query) {
+                        return $query->where('customer_id', $this->customer)
+                            ->where('year', $this->year);
+                    })->ignore($this->id, 'id'),
+            ],
+        ];
     }
 
     public function setReward(Reward $reward)

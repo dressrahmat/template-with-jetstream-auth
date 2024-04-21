@@ -5,6 +5,7 @@ use App\Livewire\Rewards\RewardsIndex;
 use App\Livewire\Select2\Select2Index;
 use App\Livewire\Services\ServicesIndex;
 use App\Livewire\Customers\CustomersIndex;
+use App\Livewire\Permissions\PermissionsIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,16 @@ Route::middleware([
     Route::get('service', ServicesIndex::class)->name('services.index');
     Route::get('reward', RewardsIndex::class)->name('rewards.index');
     Route::get('select', Select2Index::class)->name('select.index');
+
+    Route::middleware('auth')->group(function () {
+        // Route::get('/akun', [ProfileController::class, 'edit'])->name('akun.edit');
+        // Route::patch('/akun', [ProfileController::class, 'update'])->name('akun.update');
+        // Route::delete('/akun', [ProfileController::class, 'destroy'])->name('akun.destroy');
+
+        // Route::get('/profile', ProfileForm::class)->name('profile.form');
+
+        Route::get('/permissions', PermissionsIndex::class)->name('permissions.index');
+
+        // Route::get('/roles', RolesIndex::class)->name('roles.index');
+    });
 });

@@ -3,11 +3,9 @@
 namespace App\Livewire\Rewards;
 
 use App\Models\Reward;
-use Livewire\Component;
-use App\Models\Customer;
-use Livewire\Attributes\On;
 use Livewire\Attributes\Locked;
-use App\Livewire\Rewards\RewardsTable;
+use Livewire\Attributes\On;
+use Livewire\Component;
 
 class RewardsDelete extends Component
 {

@@ -2,43 +2,44 @@
     class="hidden md:block bg-base-100 text-white shadow z-30 transition-width duration-300 fixed inset-y-0">
     <!-- Sidebar Content -->
     <ul class="menu text-lg">
-        <li
-            class="px-4 py-2 my-1 {{ request()->routeIs('dashboard') ? 'glass rounded-md bg-base-content' : ' text-neutral' }}">
-            <a href="{{ route('dashboard') }}" class="flex items-center">
+        <li>
+            <a wire:navigate href="{{ route('dashboard') }}"
+                class="flex items-center px-4 py-4 my-1 {{ request()->routeIs('dashboard') ? 'glass rounded-md active bg-base-100 shadow-sm text-neutral' : ' text-neutral' }}">
                 <i class="fas fa-home"></i>
                 <span class="ml-2" x-show="isOpen">Dashboard</span>
             </a>
         </li>
         {{-- <li class="py-2 {{ request()->routeIs('blog.index') ? 'glass rounded-md' : '' }}">
-            <a href="{{ route('blog.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
+            <a wire:navigate href="{{ route('blog.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
                 <i class="far fa-newspaper"></i>
                 <span class="ml-2" x-show="isOpen">Blog</span>
             </a>
         </li> --}}
         <li
-            class="px-4 py-2 my-1  {{ request()->routeIs('permission.*') || request()->routeIs('role.*') || request()->routeIs('user.*') ? 'glass rounded-md' : '' }}">
+            class="{{ request()->routeIs('permissions.*') || request()->routeIs('role.*') || request()->routeIs('user.*') ? 'glass rounded-md' : '' }}">
             <details
-                {{ request()->routeIs('permission.*') || request()->routeIs('role.*') || request()->routeIs('user.*') ? 'open' : '' }}>
-                <summary class="bg-transparent">
+                {{ request()->routeIs('permissions.*') || request()->routeIs('role.*') || request()->routeIs('user.*') ? 'open' : '' }}>
+                <summary
+                    class="px-4 py-4 my-1 text-base-content hover:bg-base-content glass rounded-md hover:text-base-100 ">
                     <i class="fa fa-solid fa-toolbox"></i>
                     <span class="ml-2" x-show="isOpen">Setting</span>
                 </summary>
                 <ul :class="{ 'ml-4 mt-2': isOpen, 'ml-1 mt-4': !isOpen }">
-                    {{-- <li class="{{ request()->routeIs('permission.index') ? 'bg-gray-900 glass rounded-md' : '' }}">
-                        <a href="{{ route('permission.index') }}"
-                            class="flex items-center px-4 py-2 my-1 text-neutral">
+                    <li>
+                        <a wire:navigate href="{{ route('permissions.index') }}"
+                            class="flex items-center px-4 py-4 my-1 {{ request()->routeIs('permissions.index') ? 'glass rounded-md active bg-base-100 shadow-sm text-neutral' : ' text-neutral' }}">
                             <i class="fas fa-file-contract"></i>
                             <span class="ml-2" x-show="isOpen">Permission</span>
                         </a>
-                    </li> --}}
+                    </li>
                     {{-- <li class="{{ request()->routeIs('role.index') ? 'bg-gray-900 glass rounded-md' : '' }}">
-                        <a href="{{ route('role.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
+                        <a wire:navigate href="{{ route('role.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
                             <i class="fas fa-plus-circle"></i>
                             <span class="ml-2" x-show="isOpen">Role</span>
                         </a>
                     </li> --}}
                     {{-- <li class="{{ request()->routeIs('user.*') ? 'bg-gray-900 glass rounded-md' : '' }}">
-                        <a href="{{ route('user.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
+                        <a wire:navigate href="{{ route('user.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
                             <i class="fas fa-user"></i>
                             <span class="ml-2" x-show="isOpen">User</span>
                         </a>
