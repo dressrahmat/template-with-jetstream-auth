@@ -37,18 +37,27 @@
                                     </a>
                                 </li> --}}
                                     <li class="my-1">
-                                        <a wire:click="$dispatch('edit-form', {id: {{ $permission->id }} })"
+                                        {{-- <a wire:click="$dispatch('edit-form', {id: {{ $permission->id }} })"
                                             class="btn btn-xs rounded-md btn-primary">
                                             <i class="fas fa-edit text-base"></i>
-                                        </a>
+                                        </a> --}}
+                                        <x-button @click="$dispatch('form-edit', { id: '{{ $permission->id }}' })"
+                                            type="button">
+                                            <i class="fas fa-edit text-base"></i>
+                                        </x-button>
                                     </li>
 
                                     <li class="my-1">
-                                        <button class="btn btn-xs rounded-md btn-secondary"
+                                        {{-- <button class="btn btn-xs rounded-md btn-secondary"
                                             wire:key="{{ $permission->id }}" wire:click="delete({{ $permission->id }})"
                                             wire:confirm="Apakah Anda yakin ingin menghapus {{ $permission->name }}?">
                                             <i class="fas fa-trash-alt text-base"></i>
-                                        </button>
+                                        </button> --}}
+
+                                        <x-danger-button
+                                            @click="$dispatch('confirm-delete', { get_id: '{{ $permission->id }}' })">
+                                            <i class="fas fa-trash-alt text-base"></i>
+                                        </x-danger-button>
                                     </li>
                                 </ul>
                             </div>
