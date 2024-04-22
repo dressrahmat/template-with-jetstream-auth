@@ -1,9 +1,6 @@
-<div
-    x-data="{open: false}"
-    x-show="open"
+<div x-data="{ open: false }" x-show="open"
     @confirm-delete.window="
     const get_id = event.detail.get_id;
-
     Swal.fire({
     title: 'Are you sure?',
     text: 'You won\'t be able to revert this!',
@@ -29,7 +26,6 @@
         })
     }
     });
-    "
->
+    ">
 
 </div>

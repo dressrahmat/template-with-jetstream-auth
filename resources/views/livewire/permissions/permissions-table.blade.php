@@ -77,4 +77,7 @@
         </div>
     </div>
     <x-sweet-alert />
+    <div>
+        <x-confirm-delete />
+    </div>
 </div>

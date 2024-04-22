@@ -3,10 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UserRoleSeeder extends Seeder
 {
@@ -23,6 +24,12 @@ class UserRoleSeeder extends Seeder
 
         DB::beginTransaction();
         try {
+            Permission::create(['name' => 'baca-tulisan']);
+            Permission::create(['name' => 'edit-tulisan']);
+            Permission::create(['name' => 'hapus-tulisan']);
+            Permission::create(['name' => 'buat-tulisan']);
+
+
             Role::create(['name' => 'admin']);
             Role::create(['name' => 'penulis']);
             Role::create(['name' => 'pembaca']);

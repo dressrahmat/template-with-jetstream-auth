@@ -6,4 +6,5 @@
         @livewire('permissions.permissions-create')
         @livewire('permissions.permissions-edit')
     </div>
+
 </div>

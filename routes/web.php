@@ -36,15 +36,21 @@ Route::middleware([
     Route::get('reward', RewardsIndex::class)->name('rewards.index');
     Route::get('select', Select2Index::class)->name('select.index');
 
-    Route::middleware('auth')->group(function () {
-        // Route::get('/akun', [ProfileController::class, 'edit'])->name('akun.edit');
-        // Route::patch('/akun', [ProfileController::class, 'update'])->name('akun.update');
-        // Route::delete('/akun', [ProfileController::class, 'destroy'])->name('akun.destroy');
+});
 
-        // Route::get('/profile', ProfileForm::class)->name('profile.form');
 
-        Route::get('/permissions', PermissionsIndex::class)->name('permissions.index');
+Route::middleware([
+    'auth',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    // Route::get('/akun', [ProfileController::class, 'edit'])->name('akun.edit');
+    // Route::patch('/akun', [ProfileController::class, 'update'])->name('akun.update');
+    // Route::delete('/akun', [ProfileController::class, 'destroy'])->name('akun.destroy');
 
-        // Route::get('/roles', RolesIndex::class)->name('roles.index');
-    });
+    // Route::get('/profile', ProfileForm::class)->name('profile.form');
+
+    Route::get('/permissions', PermissionsIndex::class)->name('permissions.index');
+
+    // Route::get('/roles', RolesIndex::class)->name('roles.index');
 });
