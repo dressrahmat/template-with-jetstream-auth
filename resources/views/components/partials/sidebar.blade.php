@@ -16,9 +16,9 @@
             </a>
         </li> --}}
         <li
-            class="{{ request()->routeIs('permissions.*') || request()->routeIs('role.*') || request()->routeIs('user.*') ? 'glass rounded-md' : '' }}">
+            class="{{ request()->routeIs('permissions.*') || request()->routeIs('roles.*') || request()->routeIs('user.*') ? 'glass rounded-md' : '' }}">
             <details
-                {{ request()->routeIs('permissions.*') || request()->routeIs('role.*') || request()->routeIs('user.*') ? 'open' : '' }}>
+                {{ request()->routeIs('permissions.*') || request()->routeIs('roles.*') || request()->routeIs('user.*') ? 'open' : '' }}>
                 <summary
                     class="px-4 py-4 my-1 text-base-content hover:bg-base-content glass rounded-md hover:text-base-100 ">
                     <i class="fa fa-solid fa-toolbox"></i>
@@ -29,15 +29,16 @@
                         <a wire:navigate href="{{ route('permissions.index') }}"
                             class="flex items-center px-4 py-4 my-1 {{ request()->routeIs('permissions.index') ? 'glass rounded-md active bg-base-100 shadow-sm text-neutral' : ' text-neutral' }}">
                             <i class="fas fa-file-contract"></i>
-                            <span class="ml-2" x-show="isOpen">Permission</span>
+                            <span class="ml-2" x-show="isOpen">Hak Akses</span>
                         </a>
                     </li>
-                    {{-- <li class="{{ request()->routeIs('role.index') ? 'bg-gray-900 glass rounded-md' : '' }}">
-                        <a wire:navigate href="{{ route('role.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
+                    <li class="{{ request()->routeIs('roles.index') ? 'bg-gray-900 glass rounded-md' : '' }}">
+                        <a wire:navigate href="{{ route('roles.index') }}"
+                            class="flex items-center px-4 py-4 my-1 {{ request()->routeIs('roles.index') ? 'glass rounded-md active bg-base-100 shadow-sm text-neutral' : ' text-neutral' }}">
                             <i class="fas fa-plus-circle"></i>
-                            <span class="ml-2" x-show="isOpen">Role</span>
+                            <span class="ml-2" x-show="isOpen">Jabatan</span>
                         </a>
-                    </li> --}}
+                    </li>
                     {{-- <li class="{{ request()->routeIs('user.*') ? 'bg-gray-900 glass rounded-md' : '' }}">
                         <a wire:navigate href="{{ route('user.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
                             <i class="fas fa-user"></i>

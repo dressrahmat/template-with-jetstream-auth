@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="flex justify-between items-center mx-4 gap-x-9">
             <div class="border-l-8 border-accent px-4 py-4 my-2 bg-gray-700 shadow-md w-fit">
-                <h1 class="text-xl text-slate-50 font-bold">Data Hak Akses</h1>
+                <h1 class="text-xl text-slate-50 font-bold">Data Jabatan</h1>
             </div>
             {{-- <div>
                 <input type="text" wire:model.debounce.50ms="search" wire:keyup="refreshSearch"
@@ -14,15 +14,23 @@
             <thead class="text-lg">
                 <tr>
                     <th>No</th>
+                    <th>Jabatan</th>
                     <th>Hak Akses</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($data as $permission)
+                @forelse ($data as $role)
                     <tr>
                         <td>{{ $data->firstItem() + $loop->index }}</td>
-                        <td>{{ $permission->name }}</td>
+                        <td>{{ $role->name }}</td>
+                        <td>
+                            @if ($role->permissions->isNotEmpty())
+                                {{ $role->permissions->implode('name', ', ') }}
+                            @else
+                                -
+                            @endif
+                        </td>
                         <td>
                             <!-- Dropdown -->
                             <div class="dropdown">
@@ -37,15 +45,15 @@
                                     </a>
                                 </li> --}}
                                     <li class="my-1">
-                                        <x-button @click="$dispatch('form-edit', { id: '{{ $permission->id }}' })"
-                                            wire:key="{{ $permission->id }}" type="button">
+                                        <x-button @click="$dispatch('form-edit', { id: '{{ $role->id }}' })"
+                                            wire:key="{{ $role->id }}" type="button">
                                             <i class="fas fa-edit text-base"></i>
                                         </x-button>
                                     </li>
 
                                     <li class="my-1">
                                         <x-danger-button
-                                            @click="$dispatch('confirm-delete', { get_id: '{{ $permission->id }}' })">
+                                            @click="$dispatch('confirm-delete', { get_id: '{{ $role->id }}' })">
                                             <i class="fas fa-trash-alt text-base"></i>
                                         </x-danger-button>
                                     </li>

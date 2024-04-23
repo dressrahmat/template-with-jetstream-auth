@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Livewire\Permissions;
+namespace App\Livewire\Roles;
 
 use Livewire\Component;
+use App\Livewire\Forms\RoleForm;
+use App\Livewire\Roles\RolesTable;
 use Illuminate\Support\Facades\DB;
-use App\Livewire\Forms\PermissionForm;
-use App\Livewire\Permissions\PermissionsTable;
+use Spatie\Permission\Models\Permission;
 
-class PermissionsCreate extends Component
+class RolesCreate extends Component
 {
-    public PermissionForm $form;
+    public RoleForm $form;
 
     public function save()
     {
@@ -26,11 +27,12 @@ class PermissionsCreate extends Component
             DB::rollback();
         }
 
-        $this->dispatch('form-create')->to(PermissionsTable::class);
+        $this->dispatch('form-create')->to(RolesTable::class);
     }
 
     public function render()
     {
-        return view('livewire.permissions.permissions-create');
+        $permissions = Permission::get();
+        return view('livewire.roles.roles-create', compact('permissions'));
     }
 }
