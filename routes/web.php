@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Roles\RolesIndex;
+use App\Livewire\Users\UsersIndex;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Rewards\RewardsIndex;
 use App\Livewire\Select2\Select2Index;
@@ -54,4 +55,6 @@ Route::middleware([
     Route::get('/permissions', PermissionsIndex::class)->name('permissions.index');
 
     Route::get('/roles', RolesIndex::class)->name('roles.index');
+    
+    Route::get('/user', UsersIndex::class)->name('users.index');
 });

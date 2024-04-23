@@ -16,9 +16,9 @@
             </a>
         </li> --}}
         <li
-            class="{{ request()->routeIs('permissions.*') || request()->routeIs('roles.*') || request()->routeIs('user.*') ? 'glass rounded-md' : '' }}">
+            class="{{ request()->routeIs('permissions.*') || request()->routeIs('roles.*') || request()->routeIs('users.*') ? 'glass rounded-md' : '' }}">
             <details
-                {{ request()->routeIs('permissions.*') || request()->routeIs('roles.*') || request()->routeIs('user.*') ? 'open' : '' }}>
+                {{ request()->routeIs('permissions.*') || request()->routeIs('roles.*') || request()->routeIs('users.*') ? 'open' : '' }}>
                 <summary
                     class="px-4 py-4 my-1 text-base-content hover:bg-base-content glass rounded-md hover:text-base-100 ">
                     <i class="fa fa-solid fa-toolbox"></i>
@@ -39,12 +39,13 @@
                             <span class="ml-2" x-show="isOpen">Jabatan</span>
                         </a>
                     </li>
-                    {{-- <li class="{{ request()->routeIs('user.*') ? 'bg-gray-900 glass rounded-md' : '' }}">
-                        <a wire:navigate href="{{ route('user.index') }}" class="flex items-center px-4 py-2 my-1 text-neutral">
-                            <i class="fas fa-user"></i>
+                    <li class="{{ request()->routeIs('users.index') ? 'bg-gray-900 glass rounded-md' : '' }}">
+                        <a wire:navigate href="{{ route('users.index') }}"
+                            class="flex items-center px-4 py-4 my-1 {{ request()->routeIs('users.index') ? 'glass rounded-md active bg-base-100 shadow-sm text-neutral' : ' text-neutral' }}">
+                            <i class="fas fa-users"></i>
                             <span class="ml-2" x-show="isOpen">User</span>
                         </a>
-                    </li> --}}
+                    </li>
                 </ul>
             </details>
         </li>
