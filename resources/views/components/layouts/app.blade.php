@@ -15,10 +15,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
+    {{-- @livewireStyles --}}
 </head>
 
-<body class="font-lora antialiased bg-base-300 text-sm">
+<body class="font-lora antialiased bg-base-200 text-sm">
 
     {{-- <div x-data="{ isLoading: true }" x-init="() => { setTimeout(() => { isLoading = false; }, 2000); }">
         <template x-if="isLoading">
@@ -38,7 +38,7 @@
         @include('components.partials.sidebar')
 
         <!-- Main Content -->
-        <main :class="{ 'md:ml-48 lg:ml-64 pt-32': isOpen, 'md:ml-28 pt-24': !isOpen }" class="p-4 mb-40 md:mb-20">
+        <main :class="{ 'md:ml-48 lg:ml-64': isOpen, 'md:ml-28': !isOpen }" class="p-4 mb-20">
             <!-- Your page content here -->
             {{ $slot }}
 

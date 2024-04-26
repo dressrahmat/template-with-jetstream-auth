@@ -19,16 +19,15 @@ class UsersEdit extends Component
     public function set_form(User $id)
     {
         $this->form->setForm($id);
-        $get_roles = Role::whereIn('id', $this->form->user->roles->pluck('id'))->get();
+        $get_roles = Role::whereIn('id', $this->form->user->roles->pluck('id'))->pluck('name');
         // dd($get_roles, $this->form->user->roles->pluck('id'));
 
-        $this->dispatch('set-roles-edit', data: collect($get_roles->pluck('name')));
+        $this->dispatch('set-roles-edit', data: collect($get_roles));
         $this->modalUserEdit = true;
     }
 
     public function edit()
     {
-        dd($this->form->all());
         $this->validate();
 
         try {

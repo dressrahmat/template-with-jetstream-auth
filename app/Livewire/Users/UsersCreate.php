@@ -32,7 +32,7 @@ class UsersCreate extends Component
 
     public function render()
     {
-        $data = Role::get();
-        return view('livewire.users.users-create', compact('data'));
+        $role = Role::get();
+        return view('livewire.users.users-create', compact('role'));
     }
 }

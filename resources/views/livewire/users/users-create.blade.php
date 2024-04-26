@@ -58,7 +58,7 @@
                     });" @set-reset.window="$el.roles.clear()" id="form.roles" type="text"
                         class="mt-1 w-full" multiple wire:model="form.roles">
                         <option></option>
-                        @foreach ($data as $jabatan)
+                        @foreach ($role as $jabatan)
                             <option>{{ $jabatan->name }}</option>
                         @endforeach
                     </x-tom>

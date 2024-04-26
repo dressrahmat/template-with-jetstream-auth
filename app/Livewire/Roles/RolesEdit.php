@@ -19,15 +19,14 @@ class RolesEdit extends Component
     public function set_form(Role $id)
     {
         $this->form->setForm($id);
-        $get_permissions = Permission::whereIn('id', $this->form->role->permissions->pluck('id'))->get();
+        $get_permissions = Permission::whereIn('id', $this->form->role->permissions->pluck('id'))->pluck('name');
 
-        $this->dispatch('set-permissions-edit', data: collect($get_permissions->pluck('name')));
+        $this->dispatch('set-permissions-edit', data: collect($get_permissions));
         $this->modalRoleEdit = true;
     }
 
     public function edit()
     {
-        dd($this->form->permissions);
         $this->validate();
 
         try {
@@ -38,7 +37,7 @@ class RolesEdit extends Component
             $this->dispatch('sweet-alert', icon: 'error', title: 'data gagal diupdate'.$th->getMessage());
         }
 
-        $this->dispatch('form-edit')->to(RolesTable::class);
+        $this->dispatch('form-update')->to(RolesTable::class);
     }
     public function render()
     {

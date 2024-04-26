@@ -24,7 +24,7 @@ class RoleForm extends Form
         $this->role = $role;
 
         $this->name = $role->name;
-        $this->permissions = $role->permissions;
+        $this->permissions = $role->permissions->pluck('name')->toArray();
     }
 
     public function store()

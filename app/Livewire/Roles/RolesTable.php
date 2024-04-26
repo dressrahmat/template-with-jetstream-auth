@@ -21,7 +21,7 @@ class RolesTable extends Component
     }
 
     #[On('form-create')]
-    #[On('form-edit')]
+    #[On('form-update')]
     #[On('form-delete')]
     public function render()
     {

@@ -33,7 +33,7 @@ class UserForm extends Form
         $this->name = $user->name;
         $this->email = $user->email;
         $this->password = $user->password;
-        $this->roles = $user->roles;
+        $this->roles = $user->roles->pluck('name')->toArray();;
     }
 
     public function store()
@@ -49,5 +49,9 @@ class UserForm extends Form
     public function update()
     {
         $this->user->update($this->except('user'));
+
+        if ($this->roles) {
+            $this->user->syncRoles($this->roles);
+        }
     }
 }

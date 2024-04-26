@@ -1,4 +1,4 @@
-<div class="card card-side bg-base-100 shadow-xl">
+<div class="card card-side bg-gray-200 shadow-xl">
     <div class="card-body">
         <div class="flex justify-between items-center mx-4 gap-x-9">
             <div class="border-l-8 border-accent px-4 py-4 my-2 bg-gray-700 shadow-md w-fit">

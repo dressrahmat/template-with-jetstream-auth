@@ -1,20 +1,5 @@
-<div class="text-base-content z-40">
-    <div class="bg-base-100 flex justify-between items-center p-1 fixed inset-x-0 px-5">
-        <!-- Logo -->
-        <div class="flex items-center justify-between">
-            <div :class="{ 'text-2xl': isOpen, 'hidden': !isOpen }" class=" w-1/2 text-base-content my-2">
-                <p class="text-center">Simple Projek</p>
-            </div>
-            <button @click="isOpen = !isOpen" class="p-2 ">
-                <!-- Toggle -->
-                <div x-show="isOpen" class="ml-6">
-                    <i class="far fa-caret-square-left text-2xl"></i>
-                </div>
-                <div x-show="!isOpen">
-                    <i class="far fa-caret-square-right text-2xl"></i>
-                </div>
-            </button>
-        </div>
+<div class="text-base-content z-20">
+    <div class="bg-base-100 shadow-lg flex flex-row-reverse items-center p-1 px-5">
 
         <!-- Navbar -->
         <div :class="{ 'w-10/12': isOpen, 'w-11/12': !isOpen }"

@@ -1,6 +1,5 @@
-<div :class="{ 'inset-x-0 md:inset-x-[16%]': isOpen, 'inset-x-[6%]': !isOpen }" class="absolute bottom-0 left-10">
-
-    <footer class="footer items-center p-4 text-base-100 px-10">
+<div class="w-full absolute bottom-0">
+    <footer class="footer p-4 text-base-content px-10 flex justify-center">
         <aside class="items-center grid-flow-col">
             <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                 clip-rule="evenodd" class="fill-current">
