@@ -3,10 +3,6 @@
 use App\Livewire\Roles\RolesIndex;
 use App\Livewire\Users\UsersIndex;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Rewards\RewardsIndex;
-use App\Livewire\Select2\Select2Index;
-use App\Livewire\Services\ServicesIndex;
-use App\Livewire\Customers\CustomersIndex;
 use App\Livewire\Permissions\PermissionsIndex;
 
 /*
@@ -33,10 +29,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('customer', CustomersIndex::class)->name('customers.index');
-    Route::get('service', ServicesIndex::class)->name('services.index');
-    Route::get('reward', RewardsIndex::class)->name('rewards.index');
-    Route::get('select', Select2Index::class)->name('select.index');
+    Route::get('/user', UsersIndex::class)->name('users.index');
 
 });
 
@@ -56,5 +49,4 @@ Route::middleware([
 
     Route::get('/roles', RolesIndex::class)->name('roles.index');
     
-    Route::get('/user', UsersIndex::class)->name('users.index');
 });
