@@ -9,13 +9,13 @@
                     class="border border-gray-300 px-3 py-1 mt-2 rounded-md" placeholder="Cari...">
             </div> --}}
         </div>
-        <table class="table text-base">
+        <table class="table md:text-base">
             <!-- head -->
-            <thead class="text-lg">
+            <thead class="text-base md:text-lg">
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Email</th>
+                    <th class="hidden md:table-cell">Email</th>
                     <th>Jabatan</th>
                     <th>Aksi</th>
                 </tr>
@@ -25,7 +25,7 @@
                     <tr>
                         <td>{{ $data->firstItem() + $loop->index }}</td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td class="hidden md:table-cell">{{ $user->email }}</td>
                         <td>{{ $user->getRoleNames()->implode(', ') }}</td>
                         <td>
                             <!-- Dropdown -->
