@@ -38,7 +38,7 @@
         @include('components.partials.sidebar')
 
         <!-- Main Content -->
-        <main :class="{ 'md:ml-48 lg:ml-64': isOpen, 'md:ml-28': !isOpen }" class="p-4 mb-20">
+        <main :class="{ 'md:ml-48 lg:ml-64': isOpen, 'md:ml-28': !isOpen }" class="sm:p-4 mb-20">
             <!-- Your page content here -->
             {{ $slot }}
 
@@ -47,6 +47,9 @@
         <!-- Footer -->
         @include('components.partials.footer')
 
+    </div>
+    <div class="sm:hidden">
+        @include('components.partials.bottom-botton')
     </div>
     @livewireScripts
     @stack('scripts')

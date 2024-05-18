@@ -2,7 +2,7 @@
     <div class="bg-base-100 shadow-lg flex flex-row-reverse items-center p-1 px-5">
 
         <!-- Navbar -->
-        <div :class="{ 'w-10/12': isOpen, 'w-11/12': !isOpen }"
+        <div :class="{ 'sm:w-10/12': isOpen, 'w-11/12': !isOpen }"
             class="flex py-3 justify-between transition-all duration-500">
             <p class="font-bold">Simple Projek
                 <span class="font-normal block">Jadikan sistem manajemen instansi anda menjadi lebih optimal dan efisien
@@ -17,7 +17,7 @@
                                 src="{{ asset(auth()->user()->profile->photo_profile) }}" />
                         @else
                             <img alt="Tailwind CSS Navbar component"
-                                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                src="{{ asset('../assets/images/users/user.png') }}" />
                         @endif
                     </div>
                 </div>
