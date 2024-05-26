@@ -13,7 +13,7 @@ class UsersEdit extends Component
 {
     public UserForm $form;
 
-    public $modalUserEdit = false;
+    public $modalEdit = false;
 
     #[On('form-edit')]
     public function set_form(User $id)
@@ -23,7 +23,7 @@ class UsersEdit extends Component
         // dd($get_roles, $this->form->user->roles->pluck('id'));
 
         $this->dispatch('set-roles-edit', data: collect($get_roles));
-        $this->modalUserEdit = true;
+        $this->modalEdit = true;
     }
 
     public function edit()

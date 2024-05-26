@@ -1,8 +1,8 @@
 <div>
 
-    <x-dialog-modal wire:model.live="modalRoleEdit" submit="edit">
+    <x-dialog-modal wire:model.live="modalEdit" submit="edit">
         <x-slot name="title">
-            Form Edit Role
+            Form Edit Jabatan
         </x-slot>
 
         <x-slot name="content">
@@ -10,7 +10,7 @@
 
                 <!-- Name -->
                 <div class="col-span-12 mb-4">
-                    <x-label for="form.name" value="Name" />
+                    <x-label for="form.name" value="Masukan Jabatan" />
                     <x-input id="form.name" type="text" class="mt-1 w-full" wire:model="form.name" require
                         autocomplete="form.name" />
                     <x-input-error for="form.name" class="mt-1" />
@@ -45,7 +45,7 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-secondary-button @click="$wire.set('modalRoleEdit', false)" wire:loading.attr="disabled">
+            <x-secondary-button @click="$wire.set('modalEdit', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-secondary-button>
 

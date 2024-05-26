@@ -5,11 +5,11 @@
                 <h1 class="text-xl text-slate-50 font-bold">Tambah User</h1>
             </div>
             <form>
-                <!-- Nama -->
+                <!-- Nama User -->
                 <div class="mb-2">
                     <label class="form-control">
-                        <span class="label-text py-2">Nama</span>
-                        <input type="text" wire:model="form.name" placeholder="Masukkan nama user"
+                        <span class="label-text py-2">Nama User</span>
+                        <input type="text" wire:model="form.name" placeholder="Masukkan Nama User"
                             class="input input-primary bg-gray-100 rounded-md  @error('form.name') border-red-500 @enderror"
                             autofocus />
                         @error('form.name')
@@ -22,7 +22,7 @@
                 <div class="mb-2">
                     <label class="form-control">
                         <span class="label-text py-2">Email</span>
-                        <input type="email" wire:model="form.email" placeholder="Masukkan email"
+                        <input type="email" wire:model="form.email" placeholder="Masukkan Email"
                             class="input input-primary bg-gray-100 rounded-md  @error('form.email') border-red-500 @enderror"
                             autofocus />
                         @error('form.email')
@@ -35,7 +35,7 @@
                 <div class="mb-2">
                     <label class="form-control">
                         <span class="label-text py-2">Password</span>
-                        <input type="password" wire:model="form.password" placeholder="Masukkan password"
+                        <input type="password" wire:model="form.password" placeholder="Masukkan Password"
                             class="input input-primary bg-gray-100 rounded-md  @error('form.password') border-red-500 @enderror"
                             autofocus />
                         @error('form.password')

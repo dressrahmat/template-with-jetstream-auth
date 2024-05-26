@@ -13,7 +13,7 @@ class RolesEdit extends Component
 {
     public RoleForm $form;
 
-    public $modalRoleEdit = false;
+    public $modalEdit = false;
 
     #[ On('form-edit')]
     public function set_form(Role $id)
@@ -22,7 +22,7 @@ class RolesEdit extends Component
         $get_permissions = Permission::whereIn('id', $this->form->role->permissions->pluck('id'))->pluck('name');
 
         $this->dispatch('set-permissions-edit', data: collect($get_permissions));
-        $this->modalRoleEdit = true;
+        $this->modalEdit = true;
     }
 
     public function edit()

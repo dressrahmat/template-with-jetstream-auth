@@ -9,7 +9,7 @@
                 <div class="mb-2">
                     <label class="form-control">
                         <span class="label-text py-2">Nama Jabatan</span>
-                        <input type="text" wire:model="form.name" placeholder="Masukkan nama role"
+                        <input type="text" wire:model="form.name" placeholder="Masukkan Jabatan"
                             class="input input-primary bg-gray-100 rounded-md  @error('form.name') border-red-500 @enderror"
                             autofocus />
                         @error('form.name')
