@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire\Users;
+namespace App\Livewire\Admin\Users;
 
 use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Livewire\Forms\UserForm;
-use App\Livewire\Users\UsersTable;
+use App\Livewire\Admin\Users\UsersTable;
 use Spatie\Permission\Models\Role;
 
 class UsersEdit extends Component
@@ -20,29 +20,26 @@ class UsersEdit extends Component
     {
         $this->form->setForm($id);
         $get_roles = Role::whereIn('id', $this->form->user->roles->pluck('id'))->pluck('name');
-        // dd($get_roles, $this->form->user->roles->pluck('id'));
-
+        
+        $this->dispatch('set-reset');
         $this->dispatch('set-roles-edit', data: collect($get_roles));
         $this->modalEdit = true;
     }
 
     public function edit()
     {
-        $this->validate();
-
         try {
             $simpan = $this->form->update();
             $this->dispatch('sweet-alert', icon: 'success', title: 'data berhasil diupdate');
-            $this->dispatch('set-reset');
         } catch (\Throwable $th) {
-            $this->dispatch('sweet-alert', icon: 'error', title: 'data gagal diupdate'.$th->getMessage());
+            $this->dispatch('modal-sweet-alert', icon: 'error', title: 'data gagal diupdate', text: $th->getMessage());
         }
 
-        $this->dispatch('form-edit')->to(UsersTable::class);
+        $this->dispatch('refresh-data')->to(UsersTable::class);
     }
     public function render()
     {
         $data = Role::get();
-        return view('livewire.users.users-edit', compact('data'));
+        return view('livewire.admin.users.users-edit', compact('data'));
     }
 }

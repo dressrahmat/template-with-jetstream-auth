@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Users;
+namespace App\Livewire\Admin\Users;
 
 use Livewire\Component;
 use App\Livewire\Forms\UserForm;
-use App\Livewire\Users\UsersTable;
+use App\Livewire\Admin\Users\UsersTable;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 
@@ -27,12 +27,12 @@ class UsersCreate extends Component
             DB::rollback();
         }
 
-        $this->dispatch('form-create')->to(UsersTable::class);
+        $this->dispatch('refresh-data')->to(UsersTable::class);
     }
 
     public function render()
     {
         $role = Role::get();
-        return view('livewire.users.users-create', compact('role'));
+        return view('livewire.admin.users.users-create', compact('role'));
     }
 }

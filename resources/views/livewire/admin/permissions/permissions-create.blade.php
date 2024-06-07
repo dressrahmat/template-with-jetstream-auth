@@ -1,9 +1,15 @@
 <div>
-    <div class="card card-side bg-gray-200 shadow-xl">
-        <div class="card-body">
-            <div class="border-l-8 border-accent px-4 py-4 my-2 bg-gray-700 shadow-md w-fit">
+    <div class="card bg-gray-200 shadow-xl">
+        <div class="flex justify-between items-center gap-x-9">
+            <div class="border-l-8 border-accent px-4 py-4 bg-gray-700 w-full">
                 <h1 class="text-xl text-slate-50 font-bold">Tambah Hak Akses</h1>
             </div>
+            {{-- <div>
+            <input type="text" wire:model.debounce.50ms="search" wire:keyup="refreshSearch"
+                class="border border-gray-300 px-3 py-1 mt-2 rounded-md" placeholder="Cari...">
+        </div> --}}
+        </div>
+        <div class="card-body pt-3">
             <form>
                 <!-- Nama Permission -->
                 <div class="mb-2">

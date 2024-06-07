@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Livewire\Forms\PermissionForm;
 use Spatie\Permission\Models\Permission;
-use App\Livewire\Permissions\PermissionsTable;
+use App\Livewire\Admin\Permissions\PermissionsTable;
 
 class PermissionsEdit extends Component
 {
@@ -24,7 +24,6 @@ class PermissionsEdit extends Component
 
     public function edit()
     {
-        $this->validate();
 
         try {
             $simpan = $this->form->update();

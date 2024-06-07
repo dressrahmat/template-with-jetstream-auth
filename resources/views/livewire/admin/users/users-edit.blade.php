@@ -8,9 +8,9 @@
         <x-slot name="content">
             <div class="grid grid-cols-12 gap-2">
 
-                <!-- Nama User -->
+                <!-- Name -->
                 <div class="col-span-12 mb-1">
-                    <x-label for="form.name" value="Masukkan Nama User" />
+                    <x-label for="form.name" value="Name" />
                     <x-input id="form.name" type="text" class="mt-1 w-full" wire:model="form.name" require
                         autocomplete="form.name" />
                     <x-input-error for="form.name" class="mt-1" />
@@ -58,7 +58,8 @@
                             $el.roles.addOptions(event.detail.data)
                             $el.roles.addItems(event.detail.data)
                         "
-                        id="form.roles" type="text" class="mt-1 w-full" multiple wire:model="form.roles">
+                        @set-reset.window="$el.roles.clear()" id="form.roles" type="text" class="mt-1 w-full"
+                        multiple wire:model="form.roles">
                         <option></option>
                         @foreach ($data as $jabatan)
                             <option>{{ $jabatan->name }}</option>

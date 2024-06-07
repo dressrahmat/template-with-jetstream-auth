@@ -6,5 +6,4 @@
         @livewire('admin.roles.roles-create')
         @livewire('admin.roles.roles-edit')
     </div>
-
 </div>

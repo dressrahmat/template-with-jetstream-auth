@@ -5,7 +5,7 @@ namespace App\Livewire\Admin\Permissions;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use App\Livewire\Forms\PermissionForm;
-use App\Livewire\Permissions\PermissionsTable;
+use App\Livewire\Admin\Permissions\PermissionsTable;
 
 class PermissionsCreate extends Component
 {

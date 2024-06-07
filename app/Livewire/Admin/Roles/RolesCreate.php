@@ -4,7 +4,7 @@ namespace App\Livewire\Admin\Roles;
 
 use Livewire\Component;
 use App\Livewire\Forms\RoleForm;
-use App\Livewire\Roles\RolesTable;
+use App\Livewire\Admin\Roles\RolesTable;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 

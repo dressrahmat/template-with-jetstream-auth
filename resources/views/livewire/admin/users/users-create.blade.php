@@ -1,15 +1,21 @@
 <div>
-    <div class="card card-side bg-gray-200 shadow-xl">
-        <div class="card-body">
-            <div class="border-l-8 border-accent px-4 py-4 my-2 bg-gray-700 shadow-md w-fit">
+    <div class="card bg-gray-200 shadow-xl">
+        <div class="flex justify-between items-center gap-x-9">
+            <div class="border-l-8 border-accent px-4 py-4 bg-gray-700 w-full">
                 <h1 class="text-xl text-slate-50 font-bold">Tambah User</h1>
             </div>
+            {{-- <div>
+            <input type="text" wire:model.debounce.50ms="search" wire:keyup="refreshSearch"
+                class="border border-gray-300 px-3 py-1 mt-2 rounded-md" placeholder="Cari...">
+        </div> --}}
+        </div>
+        <div class="card-body pt-3">
             <form>
-                <!-- Nama User -->
+                <!-- Nama -->
                 <div class="mb-2">
                     <label class="form-control">
-                        <span class="label-text py-2">Nama User</span>
-                        <input type="text" wire:model="form.name" placeholder="Masukkan Nama User"
+                        <span class="label-text py-2">Nama</span>
+                        <input type="text" wire:model="form.name" placeholder="Masukkan nama user"
                             class="input input-primary bg-gray-100 rounded-md  @error('form.name') border-red-500 @enderror"
                             autofocus />
                         @error('form.name')
@@ -22,7 +28,7 @@
                 <div class="mb-2">
                     <label class="form-control">
                         <span class="label-text py-2">Email</span>
-                        <input type="email" wire:model="form.email" placeholder="Masukkan Email"
+                        <input type="email" wire:model="form.email" placeholder="Masukkan email"
                             class="input input-primary bg-gray-100 rounded-md  @error('form.email') border-red-500 @enderror"
                             autofocus />
                         @error('form.email')
@@ -35,7 +41,7 @@
                 <div class="mb-2">
                     <label class="form-control">
                         <span class="label-text py-2">Password</span>
-                        <input type="password" wire:model="form.password" placeholder="Masukkan Password"
+                        <input type="password" wire:model="form.password" placeholder="Masukkan password"
                             class="input input-primary bg-gray-100 rounded-md  @error('form.password') border-red-500 @enderror"
                             autofocus />
                         @error('form.password')

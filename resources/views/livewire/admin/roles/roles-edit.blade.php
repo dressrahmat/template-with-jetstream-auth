@@ -32,7 +32,8 @@
                             $el.permissions.addOptions(event.detail.data)
                             $el.permissions.addItems(event.detail.data)
                         "
-                        id="form.permissions" type="text" class="mt-1 w-full" multiple wire:model="form.permissions">
+                        @set-reset.window="$el.permissions.clear()" id="form.permissions" type="text"
+                        class="mt-1 w-full" multiple wire:model="form.permissions">
                         <option></option>
                         @foreach ($permissions as $permission)
                             <option>{{ $permission->name }}</option>

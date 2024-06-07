@@ -1,8 +1,8 @@
 <?php
 
-use App\Livewire\Users\UsersIndex;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\Roles\RolesIndex;
+use App\Livewire\Admin\Users\UsersIndex;
 use App\Livewire\Admin\Permissions\PermissionsIndex;
 
 /*
@@ -29,24 +29,19 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/user', UsersIndex::class)->name('users.index');
-
-});
-
-
-Route::middleware([
-    'auth',
+    
+    });
+    
+    
+    Route::middleware([
+        'auth',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
-    // Route::get('/akun', [ProfileController::class, 'edit'])->name('akun.edit');
-    // Route::patch('/akun', [ProfileController::class, 'update'])->name('akun.update');
-    // Route::delete('/akun', [ProfileController::class, 'destroy'])->name('akun.destroy');
-
-    // Route::get('/profile', ProfileForm::class)->name('profile.form');
-
-    Route::get('/permissions', PermissionsIndex::class)->name('permissions.index');
-
-    Route::get('/roles', RolesIndex::class)->name('roles.index');
-    
+    ])->group(function () {
+        
+        Route::get('/permissions', PermissionsIndex::class)->name('permissions.index');
+        
+        Route::get('/roles', RolesIndex::class)->name('roles.index');
+        
+        Route::get('/user', UsersIndex::class)->name('users.index');
 });
