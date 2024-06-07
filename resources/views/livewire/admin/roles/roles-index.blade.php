@@ -6,4 +6,9 @@
         @livewire('admin.roles.roles-create')
         @livewire('admin.roles.roles-edit')
     </div>
+    <div>
+        <x-sweet-alert />
+        <x-modal-sweet-alert />
+        <x-confirm-delete />
+    </div>
 </div>

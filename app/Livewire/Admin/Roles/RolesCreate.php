@@ -27,7 +27,7 @@ class RolesCreate extends Component
             DB::rollback();
         }
 
-        $this->dispatch('form-create')->to(RolesTable::class);
+        $this->dispatch('refresh-data')->to(RolesTable::class);
     }
 
     public function render()

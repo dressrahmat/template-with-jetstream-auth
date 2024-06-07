@@ -31,12 +31,11 @@ class RolesEdit extends Component
         try {
             $simpan = $this->form->update();
             $this->dispatch('sweet-alert', icon: 'success', title: 'data berhasil diupdate');
-            $this->dispatch('set-reset');
         } catch (\Throwable $th) {
             $this->dispatch('sweet-alert', icon: 'error', title: 'data gagal diupdate'.$th->getMessage());
         }
 
-        $this->dispatch('form-update')->to(RolesTable::class);
+        $this->dispatch('refresh-data')->to(RolesTable::class);
     }
     public function render()
     {

@@ -11,18 +11,7 @@ class RolesTable extends Component
 {
     use WithPagination;
 
-    public function confirmDelete($get_id)
-    {
-        try {
-            Role::destroy($get_id);
-        } catch (\Throwable $th) {
-            $this->dispatch('sweet-alert', icon: 'error', title: 'data gagal di hapus');
-        }
-    }
-
-    #[On('form-create')]
-    #[On('form-update')]
-    #[On('form-delete')]
+    #[On('refresh-data')]
     public function render()
     {
         $data = Role::latest()->paginate(5);
