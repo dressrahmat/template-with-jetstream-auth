@@ -28,12 +28,11 @@ class PermissionsEdit extends Component
         try {
             $simpan = $this->form->update();
             $this->dispatch('sweet-alert', icon: 'success', title: 'data berhasil diupdate');
-            $this->dispatch('set-reset');
         } catch (\Throwable $th) {
-            $this->dispatch('sweet-alert', icon: 'error', title: 'data gagal diupdate'.$th->getMessage());
+            $this->dispatch('modal-sweet-alert', icon: 'error', title: 'data gagal di hapus', text: $th->getMessage());
         }
 
-        $this->dispatch('form-edit')->to(PermissionsTable::class);
+        $this->dispatch('refresh-data')->to(PermissionsTable::class);
     }
     public function render()
     {

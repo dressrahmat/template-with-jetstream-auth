@@ -6,5 +6,9 @@
         @livewire('admin.permissions.permissions-create')
         @livewire('admin.permissions.permissions-edit')
     </div>
-
+    <div>
+        <x-sweet-alert />
+        <x-modal-sweet-alert />
+        <x-confirm-delete />
+    </div>
 </div>

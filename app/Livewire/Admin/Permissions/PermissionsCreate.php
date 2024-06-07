@@ -22,11 +22,11 @@ class PermissionsCreate extends Component
             $this->dispatch('set-reset');
             DB::commit();
         } catch (\Throwable $th) {
-            $this->dispatch('sweet-alert', icon: 'error', title: 'data gagal disimpan'.$th->getMessage());
+            $this->dispatch('modal-sweet-alert', icon: 'error', title: 'data gagal di hapus', text: $th->getMessage());
             DB::rollback();
         }
 
-        $this->dispatch('form-create')->to(PermissionsTable::class);
+        $this->dispatch('refresh-data')->to(PermissionsTable::class);
     }
 
     public function render()
