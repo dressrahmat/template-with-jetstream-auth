@@ -1,8 +1,8 @@
 <?php
 
-use App\Livewire\Roles\RolesIndex;
 use App\Livewire\Users\UsersIndex;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Admin\Roles\RolesIndex;
 use App\Livewire\Admin\Permissions\PermissionsIndex;
 
 /*

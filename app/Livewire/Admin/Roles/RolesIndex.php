@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Roles;
+namespace App\Livewire\Admin\Roles;
 
 use Livewire\Component;
 
@@ -9,6 +9,6 @@ class RolesIndex extends Component
     
     public function render()
     {
-        return view('livewire.roles.roles-index');
+        return view('livewire.admin.roles.roles-index');
     }
 }

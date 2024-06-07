@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Roles;
+namespace App\Livewire\Admin\Roles;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -42,6 +42,6 @@ class RolesEdit extends Component
     public function render()
     {
         $permissions = Permission::get();
-        return view('livewire.roles.roles-edit', compact('permissions'));
+        return view('livewire.admin.roles.roles-edit', compact('permissions'));
     }
 }

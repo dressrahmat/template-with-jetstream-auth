@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Roles;
+namespace App\Livewire\Admin\Roles;
 
 use Livewire\Component;
 use App\Livewire\Forms\RoleForm;
@@ -33,6 +33,6 @@ class RolesCreate extends Component
     public function render()
     {
         $permissions = Permission::get();
-        return view('livewire.roles.roles-create', compact('permissions'));
+        return view('livewire.admin.roles.roles-create', compact('permissions'));
     }
 }
