@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Permissions;
+namespace App\Livewire\Admin\Permissions;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
@@ -31,6 +31,6 @@ class PermissionsCreate extends Component
 
     public function render()
     {
-        return view('livewire.permissions.permissions-create');
+        return view('livewire.admin.permissions.permissions-create');
     }
 }

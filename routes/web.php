@@ -3,7 +3,7 @@
 use App\Livewire\Roles\RolesIndex;
 use App\Livewire\Users\UsersIndex;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Permissions\PermissionsIndex;
+use App\Livewire\Admin\Permissions\PermissionsIndex;
 
 /*
 |--------------------------------------------------------------------------

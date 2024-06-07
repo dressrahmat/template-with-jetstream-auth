@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Permissions;
+namespace App\Livewire\Admin\Permissions;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -38,6 +38,6 @@ class PermissionsEdit extends Component
     }
     public function render()
     {
-        return view('livewire.permissions.permissions-edit');
+        return view('livewire.admin.permissions.permissions-edit');
     }
 }
