@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\Roles\RolesIndex;
 use App\Livewire\Admin\Users\UsersIndex;
+use App\Livewire\Admin\Users\UsersImport;
 use App\Livewire\Admin\Permissions\PermissionsIndex;
 
 /*
@@ -44,4 +45,5 @@ Route::middleware([
         Route::get('/roles', RolesIndex::class)->name('roles.index');
         
         Route::get('/user', UsersIndex::class)->name('users.index');
+        
 });
