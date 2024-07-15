@@ -23,13 +23,14 @@
                 </div>
                 <ul tabindex="0"
                     class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                    {{-- <li>
-                        <a href="{{ route('akun.edit') }}" class="justify-between">
-                            Akun
-                        </a>
-                    </li> --}}
                     <li>
                         <a wire:navigate href="{{ route('profile.show', auth()->user()->id) }}" class="justify-between">
+                            Akun
+                        </a>
+                    </li>
+                    <li>
+                        <a wire:navigate href="{{ route('profiles.show', auth()->user()->id) }}"
+                            class="justify-between">
                             Profile
                         </a>
                     </li>

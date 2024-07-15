@@ -5,7 +5,7 @@
     <x-danger-button @click="$dispatch('confirm-delete', { get_id: '{{ $row->id }}' })">
         <i class="fas fa-trash-alt text-base"></i>
     </x-danger-button>
-    <a wire:navigate href="" class="btn btn-sm btn-info text-white">
+    <a wire:navigate href="{{ route('profiles.show', $row->id) }}" class="btn btn-sm btn-info text-white">
         <i class="fas fa-expand-alt text-base"></i>
     </a>
 </div>
