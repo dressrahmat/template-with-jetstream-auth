@@ -27,13 +27,6 @@
             </a>
         </li>
         <li>
-            <a wire:navigate href="{{ route('dashboard') }}"
-                class="flex items-center px-4 py-4 my-1 {{ request()->routeIs('dashboard') ? 'glass rounded-md active bg-base-100 shadow-sm text-neutral' : ' text-base-100' }}">
-                <i class="fas fa-address-card"></i>
-                <span class="ml-2" x-show="isOpen">Data Profile</span>
-            </a>
-        </li>
-        <li>
             <details
                 {{ request()->routeIs('permissions.*') || request()->routeIs('roles.*') || request()->routeIs('users.*') ? 'open' : '' }}>
                 <summary
