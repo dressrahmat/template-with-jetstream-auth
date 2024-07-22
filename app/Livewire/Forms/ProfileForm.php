@@ -6,6 +6,7 @@ use Livewire\Form;
 use App\Models\Profile;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileForm extends Form
 {
@@ -93,15 +94,19 @@ class ProfileForm extends Form
         $this->reset();
     }
 
-    public function update()
+    public function update($user)
     {
         $this->profile->update([
-            'nama_profile' => $this->nama_profile,
-            'id_program' => $this->id_program,
-            'tempat_pelaksanaan' => $this->tempat_pelaksanaan,
-            'waktu_pelaksanaan' => $this->waktu_pelaksanaan,
-            'tanggal_pelaksanaan' => $this->tanggal_pelaksanaan,
-            'slug' => Str::slug($this->nama_profile),
+            'id_user' => $user->id,
+            'nama_depan' => $this->nama_depan,
+            'nama_belakang' => $this->nama_belakang,
+            'tanggal_lahir' => $this->tanggal_lahir,
+            'nomor_telepon' => $this->nomor_telepon,
+            'jenis_kelamin' => $this->jenis_kelamin,
+            'agama' => $this->agama,
+            'provinsi' => $this->provinsi,
+            'kota' => $this->kota,
+            'alamat' => $this->alamat,
         ]);
 
         if (!is_string($this->photo_profile)) {

@@ -1,9 +1,9 @@
 <div class="mb-2">
-    <form wire:submit.prevent="save" enctype="multipart/form-data">
+    <form wire:submit.prevent="edit" enctype="multipart/form-data">
         <div class="card w-full card-side bg-base-100 shadow-xl h-fit">
             <!-- Upload photo_profile -->
             <div class="mb-2 p-4 basis-1/3">
-                <div>
+                <div class="mb-2">
                     <a href="{{ route('profiles.show', $user->id) }}" class="btn btn-warning">Kembali</a>
                 </div>
                 <label class="form-control">
@@ -11,7 +11,7 @@
                         <label for="photo_profile" class="cursor-pointer flex items-center justify-center">
                             <!-- Background untuk gambar yang diunggah -->
                             <div class="shadow-lg w-full h-96 rounded-lg flex items-center justify-center bg-cover bg-center"
-                                style="background-image: url('@if ($form->photo_profile && !is_string($form->photo_profile)) {{ $form->photo_profile->temporaryUrl() }} @else {{ asset($form->photo_profile) }} @endif');">
+                                style="background-image: url('@if ($form->photo_profile && !is_string($form->photo_profile)) {{ $form->photo_profile->temporaryUrl() }} @else {{ asset('storage/' . $form->photo_profile) }} @endif');">
                                 <!-- Icon untuk memilih gambar -->
                                 @if (!$form->photo_profile)
                                     <svg xmlns="http://www.w3.org/2000/svg" class="z-10 h-12 w-12 text-gray-400"

@@ -63,13 +63,14 @@
                             </tr>
                         </tbody>
                     </table>
+                    <a wire:navigate href="{{ route('profiles.edit', $user->id) }}" class="btn btn-secondary mt-4">Edit
+                        Profile</a>
                 @else
                     <p class="text-lg text-gray-600">Belum ada profile</p>
                     <a wire:navigate href="{{ route('profiles.create', $user->id) }}"
                         class="btn btn-primary mt-4">Tambahkan Profile</a>
                 @endif
-                {{-- <a wire:navigate href="{{ route('profiles.edit', $user->id) }}" class="btn btn-secondary mt-4">Edit
-                    Profile</a> --}}
+
             </div>
         </div>
     </div>

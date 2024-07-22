@@ -10,7 +10,7 @@ use App\Livewire\Forms\ProfileForm;
 use Laravolt\Indonesia\Models\City;
 use Laravolt\Indonesia\Models\Province;
 
-class ProfilesCreate extends Component
+class ProfilesEdit extends Component
 {
     use WithFileUploads;
     
@@ -23,39 +23,38 @@ class ProfilesCreate extends Component
     public function mount(User $user)
     {
         $this->user = $user;
+        $this->form->setForm($user->profile);
+        $codeProvinsi = Province::where('name', $this->form->provinsi)->first('code');
+        $this->form->provinsi = $codeProvinsi->code;
+        $codeKota = City::where('name', $this->form->kota)->first('code');
+        $this->changeProvinsi();
+        $this->form->kota = $codeKota->code;
     }
 
-    public function save()
+    public function edit()
     {
-        // $this->validate();
-        
+        $this->form->provinsi = Province::where('code', $this->form->provinsi)->first()->name;
+        $this->form->kota = City::where('code', $this->form->kota)->first()->name;
         DB::beginTransaction();
         try {
-            $ubahProvinsi = Province::where('code', $this->form->provinsi)->first();
-            $this->form->provinsi = $ubahProvinsi->name;
-            $ubahKota = City::where('code', $this->form->kota)->first();
-            $this->form->kota = $ubahKota->name;
-            $simpan = $this->form->store($this->user);
-            $this->dispatch('sweet-alert', icon: 'success', title: 'data berhasil disimpan');
-            $this->dispatch('set-reset');
+            $simpan = $this->form->update($this->user);
+            $this->dispatch('sweet-alert', icon: 'success', title: 'data berhasil diupdate');
             DB::commit();
         } catch (\Throwable $th) {
             $this->dispatch('modal-sweet-alert', icon: 'error', title: 'data gagal di hapus', text: $th->getMessage());
-            DB::rollback();
+            DB::rollBack();
         }
 
-        // $this->dispatch('refresh-data')->to(ProfilesTable::class);
-        return redirect()->route('profiles.show', $this->user->id);
+        // $this->dispatch('refresh-data')->to(MasjidsTable::class);
     }
 
     public function changeProvinsi()
     {
         $this->dataKota = City::where('province_code', $this->form->provinsi)->get();
     }
-
     public function render()
     {
         $dataProvinsi = Province::all();
-        return view('livewire.admin.profiles.profiles-create', compact('dataProvinsi'));
+        return view('livewire.admin.profiles.profiles-edit', compact('dataProvinsi'));
     }
 }
