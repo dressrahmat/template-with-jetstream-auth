@@ -63,7 +63,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a wire:navigate href="{{ route('profiles.edit', $user->id) }}" class="btn btn-secondary mt-4">Edit
+                    <a wire:navigate href="{{ route('profiles.edit', $user->id) }}"
+                        class="btn btn-secondary mt-4 text-base-100">Edit
                         Profile</a>
                 @else
                     <p class="text-lg text-gray-600">Belum ada profile</p>
